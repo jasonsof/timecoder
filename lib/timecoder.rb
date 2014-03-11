@@ -1,7 +1,7 @@
 require "timecoder/version"
 
 module Timecoder
-  def self.timecode_in_seconds(timecode)
+  def self.timecode_to_seconds(timecode)
     timecode_split = timecode.split(":")
     raise if timecode_split.length != 3
 
