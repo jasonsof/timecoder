@@ -1,4 +1,4 @@
-require '../lib/timecoder'
+require 'timecoder'
 
 Rspec.configure do |config|
 
