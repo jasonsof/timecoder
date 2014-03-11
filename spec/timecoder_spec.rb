@@ -39,7 +39,7 @@ describe Timecoder do
         expect(Timecoder.seconds_to_timecode(7200 + 600 + 1)).to eq "02:10:01"
         expect(Timecoder.seconds_to_timecode(0)).to eq "00:00:00"
         expect(Timecoder.seconds_to_timecode(60)).to eq "00:01:00"
-        expect(Timecoder.seconds_to_timecode(87654)).to eq "00:01:00"
+        expect(Timecoder.seconds_to_timecode(87654)).to eq "24:20:54"
       end
 
       it "returns a string" do
