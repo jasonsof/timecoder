@@ -18,22 +18,13 @@ module Timecoder
   def self.seconds_to_timecode(total_seconds)
     raise if !total_seconds.class.eql?(Fixnum)
 
-    if total_seconds < SECONDS_IN_MINUTE
-      timecode_str(0, 0, total_seconds)
-    elsif total_seconds < SECONDS_IN_HOUR
-      minutes = seconds_to_minutes(total_seconds)
-      seconds = total_seconds - minutes_to_seconds(minutes)
-
-      timecode_str(0, minutes, seconds)
-    else
-      hours = seconds_to_hours(total_seconds)
-      total_seconds -= hours_to_seconds(hours)
-      minutes = seconds_to_minutes(total_seconds)
-      total_seconds -= minutes_to_seconds(minutes)
-      seconds = total_seconds
-      
-      timecode_str(hours, minutes, seconds)
-    end
+    hours = seconds_to_hours(total_seconds)
+    total_seconds -= hours_to_seconds(hours)
+    minutes = seconds_to_minutes(total_seconds)
+    total_seconds -= minutes_to_seconds(minutes)
+    seconds = total_seconds
+    
+    timecode_str(hours, minutes, seconds)
   end
 
   private
